@@ -3,31 +3,25 @@ import pandas as pd
 import plotly.express as px
 import os
 
+pwd = '..'
+
 try:
-
-    st.set_page_config(page_title='SuperSales Insights', page_icon='../src/img/cart.png', layout='wide')
-
-    st.title('Visão Mensal das Vendas de um Supermercado')
-    st.divider()
-
-    st.sidebar.title('Filtros')
-    st.sidebar.divider()
-
-    df = pd.read_csv('app/src/csv/supermarket_sales.csv', sep=';', decimal=',')
-
+    df = pd.read_csv(f'../src/csv/supermarket_sales.csv', sep=';', decimal=',')
 except:
+    df = pd.read_csv(f'app/src/csv/supermarket_sales.csv', sep=';', decimal=',')
 
-    st.set_page_config(page_title='SuperSales Insights', page_icon=' app/src/img/cart.png', layout='wide')
+    pwd = 'app'
 
-    st.title('Visão Mensal das Vendas de um Supermercado')
-    st.divider()
+st.set_page_config(page_title='SuperSales Insights', page_icon=f'{pwd}/src/img/cart.png', layout='wide')
 
-    st.sidebar.title('Filtros')
-    st.sidebar.divider()
+st.title('Visão Mensal das Vendas de um Supermercado')
+st.divider()
 
-    df = pd.read_csv('app/src/csv/supermarket_sales.csv', sep=';', decimal=',')
+st.sidebar.title('Filtros')
+st.sidebar.divider()
 
-os.getcwd()
+
+
 
 df['Date'] = pd.to_datetime(df['Date'])
 df.sort_values(by=['Date'])
