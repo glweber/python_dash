@@ -19,7 +19,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
@@ -151,14 +150,12 @@ Dashboard built based on a tutorial from Azimov Academy.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/glweber/python_dash.svg?style=for-the-badge
 [contributors-url]: https://github.com/glweber/python_dash/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/glweber/python_dash.svg?style=for-the-badge
-[forks-url]: https://github.com/glweber/python_dash/network/members
 [stars-shield]: https://img.shields.io/github/stars/glweber/python_dash.svg?style=for-the-badge
 [stars-url]: https://github.com/glweber/python_dash/stargazers
 [issues-shield]: https://img.shields.io/github/issues/glweber/python_dash.svg?style=for-the-badge
 [issues-url]: https://github.com/glweber/python_dash/issues
 [license-shield]: https://img.shields.io/github/license/glweber/python_dash.svg?style=for-the-badge
-[license-url]: https://github.com/glweber/python_dash/blob/master/LICENSE.txt
+[license-url]: https://github.com/glweber/python_dash/blob/main/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/glweber
 [product-screenshot]: src/img/screenshot.png
