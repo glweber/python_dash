@@ -1,16 +1,33 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
-st.set_page_config(page_title='SuperSales Insights', page_icon='../src/img/cart.png',layout='wide')
+try:
 
-st.title('Visão Mensal das Vendas de um Supermercado')
-st.divider()
+    st.set_page_config(page_title='SuperSales Insights', page_icon='../src/img/cart.png', layout='wide')
 
-st.sidebar.title('Filtros')
-st.sidebar.divider()
+    st.title('Visão Mensal das Vendas de um Supermercado')
+    st.divider()
 
-df = pd.read_csv('../src/csv/supermarket_sales.csv', sep=';', decimal=',')
+    st.sidebar.title('Filtros')
+    st.sidebar.divider()
+
+    df = pd.read_csv('app/src/csv/supermarket_sales.csv', sep=';', decimal=',')
+
+except:
+
+    st.set_page_config(page_title='SuperSales Insights', page_icon=' app/src/img/cart.png', layout='wide')
+
+    st.title('Visão Mensal das Vendas de um Supermercado')
+    st.divider()
+
+    st.sidebar.title('Filtros')
+    st.sidebar.divider()
+
+    df = pd.read_csv('app/src/csv/supermarket_sales.csv', sep=';', decimal=',')
+
+os.getcwd()
 
 df['Date'] = pd.to_datetime(df['Date'])
 df.sort_values(by=['Date'])
@@ -38,7 +55,7 @@ fig_prod = px.bar(df_filtered, x='Total', y='Product line',
                   orientation='h')
 col2.plotly_chart(fig_prod, use_container_width=True)
 
-#Faturamento por Dia
+# Faturamento por Dia
 
 city_total = df_filtered.groupby('City')[['Total']].sum().reset_index()
 fig_city = px.bar(city_total, x='City', y='Total',
@@ -49,14 +66,14 @@ col3.plotly_chart(fig_city, use_container_width=True)
 # Faturamento por Tipo de Pagamento
 
 fig_kind_pay = px.pie(df_filtered, values='Total', names='Payment',
-                  title='Faturamento por Tipo de Pagamento')
+                      title='Faturamento por Tipo de Pagamento')
 col4.plotly_chart(fig_kind_pay, use_container_width=True)
 
 # Avaliação
 
 city_rating = df_filtered.groupby('City')[['Rating']].mean().reset_index()
 fig_rating = px.pie(city_rating, values='Rating', names='City',
-                  title='Avaliação')
+                    title='Avaliação')
 col5.plotly_chart(fig_rating, use_container_width=True)
 
 # Avaliação Média por dia | Cidade
@@ -77,17 +94,14 @@ col6, col7 = st.columns(2)
 # Faturamento por Tipo de Produto | Sexo
 
 fig_prod_gender = px.bar(df_filtered, x='Total', y='Product line',
-                  color='Gender', title='Faturamento por Tipo de Produto',
-                  orientation='h')
+                         color='Gender', title='Faturamento por Tipo de Produto',
+                         orientation='h')
 col6.plotly_chart(fig_prod_gender, use_container_width=True)
 
 # Cidade | Sexo
 
 city_total = df_filtered.groupby(['City', 'Gender'])[['Total']].sum().reset_index()
 fig_city_gender = px.bar(city_total, x='City', y='Total',
-                  color='Gender',
-                  title='Faturamento por Dia')
+                         color='Gender',
+                         title='Faturamento por Dia')
 col7.plotly_chart(fig_city_gender, use_container_width=True)
-
-
-
