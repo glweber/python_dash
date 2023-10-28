@@ -103,7 +103,7 @@ This project is a Python-based dashboard designed for the visualization of super
 
 2. Ensure that Docker is installed on your machine.
 
-3. Navigate to the project's root folder.
+3. Navigate to the Docker folder within the project's root directory.
 
 4. Execute the following command to build and run the Docker image:
 
