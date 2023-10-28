@@ -8,9 +8,9 @@ pwd = '..'
 try:
     df = pd.read_csv(f'../src/csv/supermarket_sales.csv', sep=';', decimal=',')
 except:
-    df = pd.read_csv(f'app/src/csv/supermarket_sales.csv', sep=';', decimal=',')
+    df = pd.read_csv(f'/app/src/csv/supermarket_sales.csv', sep=';', decimal=',')
 
-    pwd = 'app'
+    pwd = '/app'
 
 st.set_page_config(page_title='SuperSales Insights', page_icon=f'{pwd}/src/img/cart.png', layout='wide')
 
